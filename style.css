@@ -56,12 +56,29 @@ body {
     position: absolute;
     bottom: -100px;
     animation: floatUpSpace 7s linear infinite;
+    z-index: 1;
 }
 
 @keyframes floatUpSpace {
     0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0; }
     10% { opacity: 0.8; }
     100% { transform: translateY(-120vh) scale(1.2) rotate(360deg); opacity: 0; }
+}
+
+/* Konfeti hissəcikləri üçün stil */
+.custom-confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: 999;
+    pointer-events: none;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
 }
 
 .overlay {
@@ -213,6 +230,7 @@ button { border: none; cursor: pointer; font-weight: bold; transition: all 0.3s;
     border-radius: 20px;
 }
 .secondary-btn { background: transparent; color: #ff70a6; border: 1px solid #ff70a6; padding: 10px 20px; border-radius: 20px; margin: 10px 0;}
+.secondary-btn:hover { background: rgba(255, 112, 166, 0.1); }
 
 .wish-result { color: #00b4d8; font-weight: bold; margin-top: 8px; }
 
