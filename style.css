@@ -4,11 +4,8 @@
     box-sizing: border-box;
 }
 
-/* ÖZƏLLİK 13: Tam Çəhrayı və Şirin Gradient Animasiyalı Fon */
 body {
-    background: linear-gradient(-45deg, #ffb3c6, #ff85a2, #ffccd5, #f1a5b5);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
+    background-color: #0d0116;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
     display: flex;
@@ -18,52 +15,97 @@ body {
     padding: 40px 0;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* SEHRLİ KOSMOS VƏ NEON ARXA FON */
+.space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #2c003e, #0d0116);
 }
 
-/* Giriş ekranı (Overlay) - Tamamilə Çəhrayı Estetika */
+.nebula {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 71, 126, 0.2), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.25), transparent 45%);
+    animation: nebulaMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaMove {
+    0% { transform: translate(-10%, -10%) rotate(0deg); }
+    100% { transform: translate(10%, 10%) rotate(10deg); }
+}
+
+/* Sayt açılan kimi parıldayan ulduzlar */
+.star-glow {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Uçan kosmik elementlər */
+.space-item {
+    position: absolute;
+    bottom: -100px;
+    animation: floatUpSpace 7s linear infinite;
+}
+
+@keyframes floatUpSpace {
+    0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateY(-120vh) scale(1.2) rotate(360deg); opacity: 0; }
+}
+
+/* Giriş Pəncərəsi */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 133, 162, 0.95);
-    backdrop-filter: blur(15px);
+    background: rgba(13, 1, 22, 0.96);
+    backdrop-filter: blur(20px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.6s ease;
 }
 
 .welcome-box {
-    background: white;
+    background: #1a0933;
     padding: 40px;
     border-radius: 30px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    max-width: 400px;
+    box-shadow: 0 0 30px rgba(255, 71, 126, 0.4);
+    max-width: 420px;
     width: 90%;
-    border: 4px solid #ff477e;
+    border: 3px solid #ff477e;
+    color: white;
 }
 
 .gift-emoji {
-    font-size: 4rem;
-    animation: bounceEmoji 1s infinite alternate;
+    font-size: 4.5rem;
+    animation: bounce 1s infinite alternate;
 }
 
-@keyframes bounceEmoji {
-    from { transform: translateY(0); }
-    to { transform: translateY(-15px); }
+@keyframes bounce {
+    from { transform: translateY(0); } to { transform: translateY(-15px); }
 }
 
-/* ÖZƏLLİK 14: Giriş düyməsi üçün Böyüyüb-Kiçilmə (Pulse) Animasiyası */
 .pulse-btn {
-    background: linear-gradient(135deg, #ff477e, #ff85a2);
+    background: linear-gradient(135deg, #ff477e, #8a2be2);
     color: white;
     font-size: 1.3rem;
     padding: 15px 35px;
@@ -71,60 +113,15 @@ body {
     border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 20px;
-    box-shadow: 0 0 20px rgba(255, 71, 126, 0.6);
-    animation: buttonPulse 1.5s infinite;
+    margin-top: 25px;
+    box-shadow: 0 0 25px rgba(255, 71, 126, 0.7);
+    animation: pulse 1.5s infinite;
 }
 
-@keyframes buttonPulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 71, 126, 0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 71, 126, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 71, 126, 0); }
-}
-
-/* Üzən Ürəklər Fonu */
-.floating-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.heart-pop {
-    position: absolute;
-    bottom: -100px;
-    animation: floatUpHearts 6s linear infinite;
-}
-
-@keyframes floatUpHearts {
-    0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-110vh) scale(1.2) rotate(360deg); opacity: 0; }
-}
-
-/* Musiqi Bölməsi */
-.music-player {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.85);
-    padding: 8px 15px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    border: 2px solid #ff85a2;
-    z-index: 100;
-}
-
-.music-player button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 71, 126, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(255, 71, 126, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 71, 126, 0); }
 }
 
 /* Əsas Kart Dizaynı */
@@ -137,192 +134,140 @@ body {
 
 .birthday-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(26, 9, 51, 0.9);
+    color: white;
     padding: 35px;
-    border-radius: 30px;
-    box-shadow: 0 25px 60px rgba(255, 71, 126, 0.25);
+    border-radius: 32px;
+    box-shadow: 0 25px 65px rgba(138, 43, 226, 0.4);
     text-align: center;
-    max-width: 460px;
+    max-width: 470px;
     width: 90%;
-    border: 4px solid #ff85a2;
-    animation: cardFloat 4s ease-in-out infinite;
-    overflow: hidden;
+    border: 3px solid #ff70a6;
+    animation: cardFloat 5s ease-in-out infinite;
 }
 
 @keyframes cardFloat {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-18px); }
 }
 
-/* ÖZƏLLİK 15: Neon Parıltılı Başlıq Animasiyası */
+/* Qızılı/Göyqursağı Neon Mətin */
 .shiny-text {
-    background: linear-gradient(to right, #ff477e, #ff70a6, #ff97b7, #ff477e);
+    background: linear-gradient(to right, #ff477e, #ffbe0b, #8a2be2, #ff477e);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    animation: shineText 3s linear infinite;
-    font-size: 2.2rem;
-    margin-bottom: 5px;
+    animation: shine 3s linear infinite;
+    font-size: 2.3rem;
 }
 
-@keyframes shineText {
-    to { background-position: 200% center; }
-}
+@keyframes shine { to { background-position: 200% center; } }
 
 .crown {
     font-size: 3rem;
-    animation: swingCrown 2s ease-in-out infinite alternate;
+    animation: swing 2s ease-in-out infinite alternate;
 }
 
-@keyframes swingCrown {
-    from { transform: rotate(-15deg); }
-    to { transform: rotate(15deg); }
-}
+@keyframes swing { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
 
-/* Tort və Canlı Şam Alovları */
-.cake-container-inner {
-    position: relative;
-    display: inline-block;
-}
-
-.cake {
-    font-size: 5rem;
-    margin: 15px 0;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.cake:hover { transform: scale(1.15); }
-
-.candle-flame {
-    position: absolute;
-    font-size: 1.2rem;
-    top: -5px;
-    animation: flicker 0.3s infinite alternate;
-}
-
+/* Tort və Canlı Şamlar */
+.cake-container-inner { position: relative; display: inline-block; }
+.cake { font-size: 5rem; margin: 15px 0; cursor: pointer; transition: transform 0.3s; }
+.cake:hover { transform: scale(1.15) rotate(5deg); }
+.candle-flame { position: absolute; font-size: 1.3rem; top: -5px; animation: flicker 0.2s infinite alternate; }
 #flame1 { left: 15px; }
 #flame2 { right: 15px; }
+@keyframes flicker { from { opacity: 0.8; transform: scale(0.9); } to { opacity: 1; transform: scale(1.2); } }
 
-@keyframes flicker {
-    from { transform: scale(1) rotate(-2deg); opacity: 0.9; }
-    to { transform: scale(1.2) rotate(2deg); opacity: 1; }
-}
-
-/* Məktub və Oyun bölməsi */
+/* İnteraktiv Bölmələr */
 .letter-box, .quiz-section {
-    background: #fff0f3;
-    padding: 18px;
-    border-radius: 18px;
-    margin: 15px 0;
-    border: 1px dashed #ff85a2;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 18px 0;
+    border: 1px solid rgba(255, 112, 166, 0.3);
 }
 
-.message {
-    color: #444;
-    line-height: 1.6;
-    font-size: 1.1rem;
-}
-
-.hidden-text {
-    display: none;
-    color: #ff477e;
-    font-weight: bold;
-    margin-top: 10px;
-    animation: fadeInUp 0.4s ease;
-}
-
-@keyframes fadeInUp {
-    from { transform: translateY(10px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+.message { line-height: 1.6; font-size: 1.05rem; color: #f1e4ff; }
+.hidden-text { display: none; color: #ff70a6; font-weight: bold; margin-top: 12px; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* Mini Oyun Düymələri */
-.quiz-options {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
+.quiz-options { display: flex; justify-content: center; gap: 12px; margin-top: 12px; }
 .quiz-btn {
-    background: white;
-    border: 2px solid #ff85a2;
-    padding: 8px 15px;
+    background: #2a114d;
+    border: 2px solid #ff70a6;
+    padding: 10px 20px;
     border-radius: 15px;
     cursor: pointer;
     font-weight: bold;
-    color: #ff477e;
+    color: white;
     transition: all 0.2s;
 }
+.quiz-btn:hover { background: #ff70a6; transform: scale(1.05); }
 
-.quiz-btn:hover { background: #ff85a2; color: white; }
-
-/* Düymələr */
-button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
+/* Bütün Düymələrin Ümumi Stili */
+button { border: none; cursor: pointer; font-weight: bold; transition: all 0.3s; }
 
 .main-btn {
-    background: linear-gradient(135deg, #ff477e, #ff70a6);
+    background: linear-gradient(135deg, #ff477e, #8a2be2);
     color: white;
     font-size: 1.2rem;
+    padding: 14px;
     width: 85%;
-    box-shadow: 0 8px 20px rgba(255, 71, 126, 0.4);
-    margin-top: 10px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(255, 71, 126, 0.5);
 }
+.main-btn:hover { transform: scale(1.03); box-shadow: 0 12px 30px rgba(255, 71, 126, 0.7); }
 
-.main-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(255, 71, 126, 0.6); }
-
-.pink-gradient-btn {
-    background: linear-gradient(135deg, #ff85a2, #f1a5b5);
+.space-btn {
+    background: linear-gradient(135deg, #8a2be2, #00b4d8);
     color: white;
-    margin-bottom: 5px;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
+.secondary-btn { background: transparent; color: #ff70a6; border: 1px solid #ff70a6; padding: 10px 20px; border-radius: 20px; }
+.secondary-btn:hover { background: rgba(255, 112, 166, 0.1); }
 
-.secondary-btn { background: #f0f4fd; color: #ff477e; border: 1px solid #ff85a2; }
+.wish-result { color: #00b4d8; font-weight: bold; margin-top: 8px; }
 
-.wish-result { font-weight: bold; color: #ff477e; margin-top: 5px; }
+/* Ürək düyməsi */
+.heart-sender button { background: rgba(255, 71, 126, 0.2); color: #ff70a6; border-radius: 20px; padding: 10px; margin-top: 15px; width: 70%; }
+.heart-sender button:hover { background: rgba(255, 71, 126, 0.4); }
 
-/* Ürək Göndərmə Mexanizmi */
-.heart-sender button {
-    background: #ffccd5;
-    color: #ff477e;
-    margin-top: 15px;
-    width: 70%;
+/* Musiqi Pleyeri */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(26, 9, 51, 0.85);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: 2px solid #8a2be2;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
 }
-.heart-sender button:hover { background: #ffb3c6; }
+.music-player button { background: none; color: white; font-size: 1rem; }
 
-/* Alt bəzək lenti */
+/* Alt Neon Lent */
 .marquee-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #ff477e;
+    background: #8a2be2;
     color: white;
     padding: 10px 0;
     overflow: hidden;
     white-space: nowrap;
     z-index: 10;
-    box-shadow: 0 -5px 15px rgba(255, 71, 126, 0.3);
+    box-shadow: 0 -5px 20px rgba(138, 43, 226, 0.5);
 }
-
-.marquee-footer span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 15s linear infinite;
-    font-weight: bold;
-}
-
-@keyframes marquee {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-100%, 0, 0); }
-}
-
+.marquee-footer span { display: inline-block; padding-left: 100%; animation: marquee 16s linear infinite; font-weight: bold; }
+@keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
+.sub-text { font-size: 0.85rem; color: #aaa; font-style: italic; margin-top: 5px; }
