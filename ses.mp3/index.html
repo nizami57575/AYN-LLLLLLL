@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ad Günün Mübarək Aynil!</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Vizual effekt kitabxanaları -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <!-- Giriş Ekranı: Səsin və musiqinin bloklanmaması üçün -->
+    <!-- Giriş Ekranı -->
     <div id="welcomeOverlay" class="overlay">
         <div class="welcome-box">
             <div class="gift-emoji">🎁</div>
@@ -20,30 +19,28 @@
         </div>
     </div>
 
-    <!-- SEHRLİ ARXA FON: Ulduzlar, dumanlıq və şarlar üçün konteyner -->
+    <!-- SEHRLİ ARXA FON -->
     <div class="space-background">
         <div class="nebula"></div>
         <div class="stars-cluster" id="starsBg"></div>
         <div class="floating-elements" id="bgAnimation"></div>
     </div>
 
-    <!-- Canlı Musiqi Statusu -->
+    <!-- Musiqi Statusu -->
     <div class="music-player">
-        <span id="musicStatus">🎵 Sehrli Melodiya Aktivdir</span>
+        <span id="musicStatus">🎵 Melodiya Aktivdir</span>
         <button id="toggleMusicBtn">⏸️</button>
     </div>
 
     <div class="card-container">
         <div class="birthday-card">
-            <!-- Kartın ətrafındakı neon işıq haləsi -->
             <div class="magic-glow"></div>
-
             <div class="crown">👑</div>
             
             <h1 class="title shiny-text">Ad Günün Mübarək, Aynil! 🎉</h1>
             <p class="date">Xoş Gəldin 12 Yaş! 🌟</p>
             
-            <!-- İnteraktiv Şamlı Tort -->
+            <!-- Tort Hissəsi -->
             <div class="cake-section">
                 <div class="cake-container-inner">
                     <span class="candle-flame" id="flame1">🔥</span>
@@ -64,7 +61,7 @@
                 <p id="hiddenMessage" class="hidden-text">Həmişə belə ağıllı, pozitiv və fərqli qal! Ad günün mübarək! 🎈</p>
             </div>
 
-            <!-- Yenilənmiş 12 Yaş Oyunu -->
+            <!-- 12 Yaş Oyunu -->
             <div class="quiz-section">
                 <p class="quiz-title">✨ Aynilin bu gün neçə yaşı tamam olur? 🤔</p>
                 <div class="quiz-options">
@@ -75,7 +72,7 @@
                 <p id="quizFeedback" class="sub-text"></p>
             </div>
 
-            <!-- Səsi yenidən dinləmək üçün düymə -->
+            <!-- Səs Düyməsi -->
             <div class="audio-control">
                 <button id="aiVoiceBtn" class="secondary-btn">🎤 Nizamini Yenidən Eşit</button>
             </div>
@@ -101,12 +98,11 @@
         <span>✨ AYNIL 12 YAŞIN MÜBARƏK ✨ SONSUZ UĞURLAR ✨ NİZAMİDƏN KOSMİK SÜRPRIZ ✨ HAPPY BIRTHDAY ✨</span>
     </div>
 
-    <!-- SƏSİN ÜÇÜN ELEMENT: Sənin yüklədiyin ses.mp3 bura bağlanır -->
+    <!-- Audio Elementləri -->
     <audio id="myVoice">
         <source src="ses.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Arxa fon musiqisi -->
     <audio id="bgMusic" loop>
         <source src="https://assets.mixkit.co/active_storage/sfx/123/123-200.wav" type="audio/wav">
     </audio>
@@ -114,4 +110,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
