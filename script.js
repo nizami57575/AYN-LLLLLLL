@@ -1,3 +1,4 @@
+// Ulduzları avtomatik yaradan kod
 function createStars() {
     const bg = document.getElementById('starsBg');
     if(!bg) return;
@@ -14,28 +15,48 @@ function createStars() {
 }
 createStars();
 
+// SIFIRDAN YAZILMIŞ ETIBARLI KONFETI (SALÜT) FUNKSİYASI
+function customConfettiEffect() {
+    const colors = ['#ff477e', '#8a2be2', '#00b4d8', '#ffbe0b', '#ffffff'];
+    for (let i = 0; i < 100; i++) {
+        const p = document.createElement('div');
+        p.className = 'custom-confetti';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.top = (Math.random() * -20) + 'px';
+        p.style.width = (Math.random() * 6 + 6) + 'px';
+        p.style.height = p.style.width;
+        p.style.animationDelay = (Math.random() * 1.5) + 's';
+        p.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        document.body.appendChild(p);
+        
+        setTimeout(() => { p.remove(); }, 3500);
+    }
+}
+
+// "Sürprizi Başlat" klik triggeri
 document.getElementById('startBtn').addEventListener('click', () => {
     const overlay = document.getElementById('welcomeOverlay');
     overlay.style.opacity = '0';
     setTimeout(() => { overlay.style.display = 'none'; }, 500);
 
+    // Səsin oxunması
     const myVoiceAudio = document.getElementById('myVoice');
     if (myVoiceAudio) {
         myVoiceAudio.play().catch(err => {
-            console.log("Ses faylı oxunmadı, TTS-ə keçilir.");
+            console.log("Ses faylı hələ yüklənməyib, ehtiyat səsə keçilir.");
             playBackupTTS();
         });
     }
 
+    // Musiqinin oxunması
     const music = document.getElementById('bgMusic');
     if (music) {
         music.play().catch(err => console.log("Musiqi başlamadı"));
     }
 
     startSpaceElements();
-    if(typeof confetti === 'function') {
-        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
-    }
+    customConfettiEffect();
 });
 
 document.getElementById('aiVoiceBtn').addEventListener('click', () => {
@@ -73,9 +94,7 @@ function startSpaceElements() {
 }
 
 document.getElementById('celebrateBtn').addEventListener('click', () => {
-    if(typeof confetti === 'function') {
-        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-    }
+    customConfettiEffect();
 });
 
 let blownOut = false;
@@ -88,7 +107,7 @@ document.getElementById('cakeIcon').addEventListener('click', function() {
         f2.style.display = 'none';
         document.getElementById('candleStatus').innerText = 'Uraaa! Aynil 12 yaşın bütün şamlarını söndürdü! 🥳✨';
         blownOut = true;
-        if(typeof confetti === 'function') confetti({ particleCount: 40, spread: 50 });
+        customConfettiEffect();
     } else {
         this.innerText = '🎂';
         f1.style.display = 'block';
@@ -106,7 +125,7 @@ quizButtons.forEach(btn => {
         if (isCorrect) {
             feedback.innerText = "Tamamilə Doğrudur! Aynilin artıq 12 yaşı tamam olur! 😍🎂";
             feedback.style.color = "#00b4d8";
-            if(typeof confetti === 'function') confetti({ particleCount: 30, spread: 40 });
+            customConfettiEffect();
         } else {
             feedback.innerText = "Xeyr, düzgün deyil! Yaxşı düşün! 😉";
             feedback.style.color = "#ff477e";
@@ -130,9 +149,7 @@ let count = 0;
 document.getElementById('sendHeartBtn').addEventListener('click', () => {
     count++;
     document.getElementById('heartCount').innerText = count;
-    if(typeof confetti === 'function') {
-        confetti({ particleCount: 15, angle: 90, spread: 35, colors: ['#ff70a6', '#8a2be2'] });
-    }
+    customConfettiEffect();
 });
 
 const bgMusic = document.getElementById('bgMusic');
