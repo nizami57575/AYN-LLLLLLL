@@ -15,7 +15,6 @@ body {
     padding: 40px 0;
 }
 
-/* SEHRLİ KOSMOS VƏ NEON ARXA FON */
 .space-background {
     position: fixed;
     top: 0;
@@ -41,7 +40,6 @@ body {
     100% { transform: translate(10%, 10%) rotate(10deg); }
 }
 
-/* Sayt açılan kimi parıldayan ulduzlar */
 .star-glow {
     position: absolute;
     background: white;
@@ -54,7 +52,6 @@ body {
     100% { opacity: 1; transform: scale(1.2); }
 }
 
-/* Uçan kosmik elementlər */
 .space-item {
     position: absolute;
     bottom: -100px;
@@ -67,7 +64,6 @@ body {
     100% { transform: translateY(-120vh) scale(1.2) rotate(360deg); opacity: 0; }
 }
 
-/* Giriş Pəncərəsi */
 .overlay {
     position: fixed;
     top: 0;
@@ -80,7 +76,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.5s ease;
 }
 
 .welcome-box {
@@ -114,7 +110,6 @@ body {
     cursor: pointer;
     font-weight: bold;
     margin-top: 25px;
-    box-shadow: 0 0 25px rgba(255, 71, 126, 0.7);
     animation: pulse 1.5s infinite;
 }
 
@@ -124,7 +119,6 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(255, 71, 126, 0); }
 }
 
-/* Əsas Kart Dizaynı */
 .card-container {
     z-index: 2;
     width: 100%;
@@ -151,7 +145,6 @@ body {
     50% { transform: translateY(-18px); }
 }
 
-/* Qızılı/Göyqursağı Neon Mətin */
 .shiny-text {
     background: linear-gradient(to right, #ff477e, #ffbe0b, #8a2be2, #ff477e);
     background-size: 200% auto;
@@ -171,7 +164,6 @@ body {
 
 @keyframes swing { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
 
-/* Tort və Canlı Şamlar */
 .cake-container-inner { position: relative; display: inline-block; }
 .cake { font-size: 5rem; margin: 15px 0; cursor: pointer; transition: transform 0.3s; }
 .cake:hover { transform: scale(1.15) rotate(5deg); }
@@ -180,7 +172,6 @@ body {
 #flame2 { right: 15px; }
 @keyframes flicker { from { opacity: 0.8; transform: scale(0.9); } to { opacity: 1; transform: scale(1.2); } }
 
-/* İnteraktiv Bölmələr */
 .letter-box, .quiz-section {
     background: rgba(255, 255, 255, 0.06);
     padding: 20px;
@@ -190,10 +181,8 @@ body {
 }
 
 .message { line-height: 1.6; font-size: 1.05rem; color: #f1e4ff; }
-.hidden-text { display: none; color: #ff70a6; font-weight: bold; margin-top: 12px; animation: fadeIn 0.5s ease; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.hidden-text { display: none; color: #ff70a6; font-weight: bold; margin-top: 12px; }
 
-/* Mini Oyun Düymələri */
 .quiz-options { display: flex; justify-content: center; gap: 12px; margin-top: 12px; }
 .quiz-btn {
     background: #2a114d;
@@ -203,11 +192,9 @@ body {
     cursor: pointer;
     font-weight: bold;
     color: white;
-    transition: all 0.2s;
 }
-.quiz-btn:hover { background: #ff70a6; transform: scale(1.05); }
+.quiz-btn:hover { background: #ff70a6; }
 
-/* Bütün Düymələrin Ümumi Stili */
 button { border: none; cursor: pointer; font-weight: bold; transition: all 0.3s; }
 
 .main-btn {
@@ -217,9 +204,7 @@ button { border: none; cursor: pointer; font-weight: bold; transition: all 0.3s;
     padding: 14px;
     width: 85%;
     border-radius: 25px;
-    box-shadow: 0 8px 25px rgba(255, 71, 126, 0.5);
 }
-.main-btn:hover { transform: scale(1.03); box-shadow: 0 12px 30px rgba(255, 71, 126, 0.7); }
 
 .space-btn {
     background: linear-gradient(135deg, #8a2be2, #00b4d8);
@@ -227,16 +212,12 @@ button { border: none; cursor: pointer; font-weight: bold; transition: all 0.3s;
     padding: 10px 20px;
     border-radius: 20px;
 }
-.secondary-btn { background: transparent; color: #ff70a6; border: 1px solid #ff70a6; padding: 10px 20px; border-radius: 20px; }
-.secondary-btn:hover { background: rgba(255, 112, 166, 0.1); }
+.secondary-btn { background: transparent; color: #ff70a6; border: 1px solid #ff70a6; padding: 10px 20px; border-radius: 20px; margin: 10px 0;}
 
 .wish-result { color: #00b4d8; font-weight: bold; margin-top: 8px; }
 
-/* Ürək düyməsi */
 .heart-sender button { background: rgba(255, 71, 126, 0.2); color: #ff70a6; border-radius: 20px; padding: 10px; margin-top: 15px; width: 70%; }
-.heart-sender button:hover { background: rgba(255, 71, 126, 0.4); }
 
-/* Musiqi Pleyeri */
 .music-player {
     position: fixed;
     top: 20px;
@@ -254,7 +235,6 @@ button { border: none; cursor: pointer; font-weight: bold; transition: all 0.3s;
 }
 .music-player button { background: none; color: white; font-size: 1rem; }
 
-/* Alt Neon Lent */
 .marquee-footer {
     position: fixed;
     bottom: 0;
@@ -266,7 +246,6 @@ button { border: none; cursor: pointer; font-weight: bold; transition: all 0.3s;
     overflow: hidden;
     white-space: nowrap;
     z-index: 10;
-    box-shadow: 0 -5px 20px rgba(138, 43, 226, 0.5);
 }
 .marquee-footer span { display: inline-block; padding-left: 100%; animation: marquee 16s linear infinite; font-weight: bold; }
 @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
