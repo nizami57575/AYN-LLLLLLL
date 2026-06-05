@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ad Günün Mübarək Aynil!</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <!-- Giriş Ekranı -->
     <div id="welcomeOverlay" class="overlay">
         <div class="welcome-box">
             <div class="gift-emoji">🎁</div>
@@ -19,14 +17,12 @@
         </div>
     </div>
 
-    <!-- SEHRLİ ARXA FON -->
     <div class="space-background">
         <div class="nebula"></div>
         <div class="stars-cluster" id="starsBg"></div>
         <div class="floating-elements" id="bgAnimation"></div>
     </div>
 
-    <!-- Musiqi Statusu -->
     <div class="music-player">
         <span id="musicStatus">🎵 Melodiya Aktivdir</span>
         <button id="toggleMusicBtn">⏸️</button>
@@ -40,7 +36,6 @@
             <h1 class="title shiny-text">Ad Günün Mübarək, Aynil! 🎉</h1>
             <p class="date">Xoş Gəldin 12 Yaş! 🌟</p>
             
-            <!-- Tort Hissəsi -->
             <div class="cake-section">
                 <div class="cake-container-inner">
                     <span class="candle-flame" id="flame1">🔥</span>
@@ -50,7 +45,6 @@
                 <p id="candleStatus" class="sub-text">Şamları söndürmək üçün torta kliklə!</p>
             </div>
             
-            <!-- Təbrik Məktubu -->
             <div class="letter-box">
                 <p class="message">
                     Uraaa! Artıq 12 yaşın tamam olur! 🎉 
@@ -61,7 +55,6 @@
                 <p id="hiddenMessage" class="hidden-text">Həmişə belə ağıllı, pozitiv və fərqli qal! Ad günün mübarək! 🎈</p>
             </div>
 
-            <!-- 12 Yaş Oyunu -->
             <div class="quiz-section">
                 <p class="quiz-title">✨ Aynilin bu gün neçə yaşı tamam olur? 🤔</p>
                 <div class="quiz-options">
@@ -72,33 +65,27 @@
                 <p id="quizFeedback" class="sub-text"></p>
             </div>
 
-            <!-- Səs Düyməsi -->
             <div class="audio-control">
                 <button id="aiVoiceBtn" class="secondary-btn">🎤 Nizamini Yenidən Eşit</button>
             </div>
 
-            <!-- Arzu Çarxı -->
             <div class="wish-section">
                 <button id="wishBtn" class="space-btn">🔮 Gecənin Sehrli Arzusunu Seç</button>
                 <p id="wishResult" class="wish-result"></p>
             </div>
 
-            <!-- Böyük Atəşfəşanlıq -->
             <button id="celebrateBtn" class="main-btn">Kosmik Salütləri Partlat 🚀</button>
 
-            <!-- Ürək Göndərmə -->
             <div class="heart-sender">
                 <button id="sendHeartBtn">Aynilə Ürək Göndər 💖 (<span id="heartCount">0</span>)</button>
             </div>
         </div>
     </div>
 
-    <!-- Alt Neon Lent -->
     <div class="marquee-footer">
         <span>✨ AYNIL 12 YAŞIN MÜBARƏK ✨ SONSUZ UĞURLAR ✨ NİZAMİDƏN KOSMİK SÜRPRIZ ✨ HAPPY BIRTHDAY ✨</span>
     </div>
 
-    <!-- Audio Elementləri -->
     <audio id="myVoice">
         <source src="ses.mp3" type="audio/mpeg">
     </audio>
